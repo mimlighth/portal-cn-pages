@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 轻量导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #1e2a3a;
+      line-height: 1.6;
+    }
+
+    /* 深色导航区 */
+    .top-nav {
+      background: #0b1a2b;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .top-nav .logo {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #f9d976, #f39c4b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .top-nav .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      padding: 0.5rem 0;
+    }
+
+    .top-nav .nav-links a {
+      color: #cfddee;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .top-nav .nav-links a:hover {
+      color: #f3b562;
+    }
+
+    /* 深色头图 hero */
+    .hero {
+      background: linear-gradient(135deg, #0b1a2b 0%, #1f3a4f 100%);
+      padding: 4.5rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: #f0f4fa;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #c7d6e8;
+      max-width: 680px;
+      margin: 0 auto 1.8rem;
+    }
+
+    .hero .hero-cta {
+      display: inline-block;
+      background: #f3b562;
+      color: #0b1a2b;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.1s;
+      font-size: 1rem;
+    }
+
+    .hero .hero-cta:hover {
+      background: #f7c77b;
+      transform: scale(1.02);
+    }
+
+    /* 浅色正文区 */
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1e2a3a;
+      border-left: 5px solid #f3b562;
+      padding-left: 1rem;
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+      margin-bottom: 2.8rem;
+      color: #3a4b5e;
+    }
+
+    .intro-text a {
+      color: #b87333;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .intro-text a:hover {
+      color: #a05f2c;
+    }
+
+    /* 三个场景卡片模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 1.5rem 1.8rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .scene-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+    }
+
+    .scene-card .emoji-icon {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .scene-card h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #1e2a3a;
+    }
+
+    .scene-card p {
+      color: #4a5b6e;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    /* 常见说明 / FAQ 摘要 */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2rem 2.2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      margin-top: 1rem;
+      border: 1px solid #eef2f6;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e8edf2;
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #1e2a3a;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .faq-q::before {
+      content: "▹";
+      color: #f3b562;
+      font-size: 1.2rem;
+    }
+
+    .faq-a {
+      margin-top: 0.4rem;
+      padding-left: 1.8rem;
+      color: #4a5b6e;
+      font-size: 0.98rem;
+    }
+
+    .faq-a a {
+      color: #b87333;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .faq-a a:hover {
+      color: #9e5e28;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: #eef2f6;
+      text-align: center;
+      padding: 1.8rem 2rem;
+      color: #5a6b7e;
+      font-size: 0.9rem;
+      border-top: 1px solid #dce2ea;
+      margin-top: 1rem;
+    }
+
+    .footer a {
+      color: #b87333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 768px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+      }
+      .top-nav .nav-links {
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .content {
+        padding: 2rem 1.2rem;
+      }
+      .scenes-grid {
+        gap: 1.5rem;
+      }
+      .faq-section {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 3rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <span class="logo">◈ 开云</span>
+    <ul class="nav-links">
+      <li><a href="#intro">介绍</a></li>
+      <li><a href="#scenes">场景</a></li>
+      <li><a href="#faq">说明</a></li>
+      <li><a href="https://portal-cn-ky.com">开云</a></li>
+    </ul>
+  </nav>
+
+  <!-- 深色头图 -->
+  <section class="hero">
+    <h1>轻量导航 · 日常入口</h1>
+    <p>围绕「开云」主题展开，整合三个实用场景与常见说明，方便快速触达需要的信息。</p>
+    <a href="https://portal-cn-ky.com" class="hero-cta">开云</a>
+  </section>
+
+  <!-- 主体内容区 -->
+  <div class="content">
+
+    <!-- 核心介绍段落（自然嵌入链接） -->
+    <div id="intro">
+      <h2 class="section-title">日常中的开云</h2>
+      <div class="intro-text">
+        <p>在信息碎片时代，一个清晰的主题入口能节省不少精力。<a href="https://portal-cn-ky.com">开云</a>所关联的内容方向更偏向实用与轻盈，没有冗余的干扰。无论是快速浏览，还是获取某个具体信息，都希望路径尽可能短。</p>
+        <p>本次页面围绕这一理念，整理出三个常见场景模块，同时附上一些基础说明。如果你对特定方向感兴趣，随时可以进一步探索。</p>
+      </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div id="scenes">
+      <h2 class="section-title">场景模块</h2>
+      <div class="scenes-grid">
+        <div class="scene-card">
+          <span class="emoji-icon">📘</span>
+          <h3>信息速览</h3>
+          <p>快速获取主题动态，避免层层跳转。适合日常碎片时间浏览，内容保持轻量更新。</p>
+        </div>
+        <div class="scene-card">
+          <span class="emoji-icon">🔍</span>
+          <h3>方向参考</h3>
+          <p>提供基础脉络与常见分类，帮助新接触的人快速建立理解，减少摸索成本。</p>
+        </div>
+        <div class="scene-card">
+          <span class="emoji-icon">🛠️</span>
+          <h3>实用工具</h3>
+          <p>汇集与主题相关的轻量工具与指引，侧重简洁、直接、无过多装饰。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div id="faq" class="faq-section">
+      <h2 class="section-title" style="border-left-color: #cdaa7b;">常见说明</h2>
+      <div class="faq-item">
+        <div class="faq-q">这个页面的定位是什么？</div>
+        <div class="faq-a">一个围绕主题的轻量导航，内容聚焦于「开云」方向下的基础信息与场景整理，不涉及复杂功能。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">内容会频繁更新吗？</div>
+        <div class="faq-a">保持适度更新节奏，以实用为优先。主要调整场景模块与说明，确保信息不过时。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如何获取更多相关方向？</div>
+        <div class="faq-a">你可以直接通过 <a href="https://portal-cn-ky.com">开云</a> 页面浏览更多内容，那里有更完整的脉络。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">移动端效果如何？</div>
+        <div class="faq-a">页面已适配常见屏幕宽度，卡片与导航在手机和平板上都有良好可读性。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>基于「开云」主题 · 轻量导航 &nbsp;·&nbsp; <a href="https://portal-cn-ky.com">开云</a></p>
+    <p style="margin-top: 0.3rem; opacity: 0.7;">简单、直接，仅此而已</p>
+  </footer>
+
+</body>
+</html>
