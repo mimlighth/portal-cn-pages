@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #faf7f2;
+            color: #2e2c2a;
+            font-family: 'system-ui', -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf9;
+            border-radius: 28px;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.04);
+            transition: all 0.2s ease;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.5rem; }
+            .page { padding: 1.8rem 1.2rem; }
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #ece6dd;
+            padding-bottom: 1.8rem;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #2b4a3b;
+            line-height: 1.2;
+            margin-bottom: 0.35rem;
+        }
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #5d6b61;
+            margin-top: 0.5rem;
+            font-weight: 350;
+        }
+        .hero .tagline {
+            font-size: 0.95rem;
+            color: #7d8a7e;
+            margin-top: 0.75rem;
+            background: #f3efe8;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+        }
+
+        /* 信息卡片网格 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2.5rem 0 2rem;
+        }
+        .card {
+            flex: 1 1 220px;
+            background: #fcf9f4;
+            border-radius: 20px;
+            padding: 1.8rem 1.4rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #ede6dd;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+        }
+        .card .emoji-badge {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #2b4a3b;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #3f4b44;
+            line-height: 1.6;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #f6f2eb;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0;
+            border-left: 4px solid #8aa398;
+            font-size: 1rem;
+        }
+        .link-paragraph a {
+            color: #1b6b4b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b7cdc0;
+        }
+        .link-paragraph a:hover {
+            color: #0f4f36;
+            border-bottom-color: #0f4f36;
+        }
+
+        /* 引用快 / 提示框 */
+        .note-box {
+            background: #eef4ea;
+            padding: 1.4rem 1.6rem;
+            border-radius: 18px;
+            margin: 2rem 0;
+            color: #2b3d32;
+            border: 1px solid #d8e1d3;
+            font-size: 0.97rem;
+        }
+        .note-box strong {
+            color: #1f5c42;
+        }
+
+        /* 适合人群 列表样式 */
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.2rem;
+            margin: 1.2rem 0;
+            list-style: none;
+        }
+        .audience-list li {
+            background: #e7e2d9;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #3a473e;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin: 2.2rem 0 1rem;
+            border-top: 1px dashed #dad3c9;
+            padding-top: 1.8rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            color: #2b4a3b;
+        }
+        .faq-item .a {
+            color: #4f5d55;
+            margin-left: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2dbd0;
+            margin: 1.8rem 0;
+        }
+        .footer-note {
+            color: #6f7c72;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid #ece6dd;
+            padding-top: 1.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>爱游戏 · 轻量游戏站点</h1>
+        <div class="subhead">一个面向移动端与桌面端的游戏信息聚合入口</div>
+        <div class="tagline">站点介绍 · 可信说明</div>
+    </div>
+
+    <!-- 站点说明 + 可信角度 -->
+    <p style="font-size:1.02rem; margin-bottom:1.5rem;">
+        <strong>爱游戏</strong> 是一个以游戏内容索引为主的轻量站点，提供游戏资讯、题材分类及外部资源引导。
+        站点本身不托管游戏文件或破解内容，仅整理公开可用的游戏链接与介绍，方便爱好者快速定位感兴趣的方向。
+        运营团队持续对收录信息做基础核验，但不对第三方链接的实时可用性做绝对保证 —— 这一点在同类站点中也属常见做法。
+    </p>
+
+    <!-- 信息卡片（用途） -->
+    <div class="card-grid">
+        <div class="card">
+            <span class="emoji-badge">🎮</span>
+            <h3>游戏目录</h3>
+            <p>按题材、年代、热度整理的分类列表，适合闲逛发现感兴趣的老游戏或冷门作品。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-badge">🧭</span>
+            <h3>快捷入口</h3>
+            <p>聚合多个游戏社区、模拟器项目及资源站的链接，省去四处搜索的精力。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-badge">📋</span>
+            <h3>简评参考</h3>
+            <p>每款收录游戏附有短评及风格标签，帮助快速判断是否合自己口味。</p>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 (a 标签 文本 = 爱游戏) -->
+    <div class="link-paragraph">
+        <p>如果你平时喜欢浏览各种游戏信息，又不想被算法推荐裹挟，可以试试把 <a href="https://linewap-igame.com">爱游戏</a> 放进书签栏。
+        它更像一个安静的索引簿，没有弹窗推送，也没有社交压力。页面干净，信息密度适中，适合睡前或通勤时随手翻翻。</p>
+    </div>
+
+    <!-- 适合人群 (卡片风格) -->
+    <h2 style="font-weight:400; font-size:1.5rem; margin-top:1.8rem; color:#2b4a3b;">适合这样的你</h2>
+    <ul class="audience-list">
+        <li>怀旧游戏爱好者</li>
+        <li>喜欢淘小众作品的玩家</li>
+        <li>需要快速查阅游戏背景的编辑/写手</li>
+        <li>想了解模拟器生态的新手</li>
+        <li>对移动端友好站点有偏好的用户</li>
+    </ul>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="note-box">
+        <strong>💡 一点说明</strong><br>
+        站点收录的游戏信息主要源于用户投稿与公开维基，部分链接可能会因原站点调整而失效。
+        如果你发现某个链接无法打开，也可以通过站内反馈渠道提醒维护者更新。这种协作方式让信息库保持相对新鲜。
+    </div>
+
+    <!-- FAQ 摘要 (差异化章节) -->
+    <div class="faq-mini">
+        <h3 style="font-weight:400; font-size:1.2rem; margin-bottom:1rem; color:#2b4a3b;">❓ 常见疑问摘要</h3>
+        <div class="faq-item">
+            <span class="q">Q：需要注册才能浏览吗？</span>
+            <span class="a">不需要，所有分类和游戏卡片对访客完全开放，无付费墙。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：内容更新频率如何？</span>
+            <span class="a">视投稿与维护情况而定，通常每周会有少量新增或修正，重大节日前后可能会有主题整理。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：是否包含成人或违规内容？</span>
+            <span class="a">站点有明确的内容筛选标准，不收录违反中国大陆法律法规及公序良俗的游戏或链接。</span>
+        </div>
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        <span>爱游戏 — 一个轻量的游戏索引站 · 内容持续迭代</span>
+    </div>
+
+</div>
+</body>
+</html>
