@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 轻量导航介绍</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e1e2a; background: #f6f7fb; line-height: 1.6; }
+
+    /* 顶部导航 */
+    .top-nav {
+      background: #1b1b2f;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .top-nav .brand {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+    .top-nav .brand small {
+      font-weight: 300;
+      font-size: 0.8rem;
+      color: #b0b8d1;
+      margin-left: 8px;
+    }
+    .top-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    .top-nav ul li a {
+      color: #cfd5ec;
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .top-nav ul li a:hover {
+      color: #ffffff;
+      border-bottom-color: #e8b84b;
+    }
+    @media (max-width: 700px) {
+      .top-nav { flex-direction: column; gap: 0.5rem; padding: 0.8rem 1rem; }
+      .top-nav ul { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+    }
+
+    /* 深色头图 hero */
+    .hero {
+      background: #1b1b2f;
+      padding: 4rem 2rem 3.2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: #f5f5fa;
+      letter-spacing: 2px;
+      margin-bottom: 0.8rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #f7d46b;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #bcc4e0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* 正文区域容器 */
+    .content-wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* 核心介绍卡片 */
+    .intro-section {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.04);
+      padding: 2.8rem 2.4rem;
+      margin: -2.2rem auto 2.8rem;
+      position: relative;
+      max-width: 1000px;
+    }
+    .intro-section h2 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: #22223a;
+      border-left: 5px solid #e8b84b;
+      padding-left: 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .intro-section p {
+      color: #2f2f45;
+      margin-bottom: 1.2rem;
+    }
+    .intro-section a {
+      color: #b8863a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #cfb672;
+      font-weight: 500;
+    }
+    .intro-section a:hover {
+      color: #7a5f2a;
+    }
+
+    /* 三个场景模块 (卡片网格) */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 3rem 0 2.5rem;
+    }
+    @media (max-width: 750px) {
+      .scenes-grid { grid-template-columns: 1fr; }
+    }
+    .scene-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 2rem 1.6rem 1.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      border: 1px solid #ededf5;
+      transition: box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
+    }
+    .scene-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .scene-card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #1e1e2a;
+    }
+    .scene-card p {
+      color: #3d3d55;
+      font-size: 0.96rem;
+    }
+
+    /* 常见说明 / FAQ 摘要 */
+    .faq-summary {
+      background: #f0f2fa;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin: 2.8rem 0 3.5rem;
+    }
+    .faq-summary h4 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #1b1b2f;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+    .faq-item .question {
+      font-weight: 500;
+      color: #25253b;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item .answer {
+      color: #40405a;
+      padding-left: 0.5rem;
+      border-left: 3px solid #dac38c;
+      padding-left: 1rem;
+    }
+    .faq-item .answer a {
+      color: #b8863a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .faq-item .answer a:hover {
+      color: #7a5f2a;
+    }
+
+    /* 底部 */
+    .footer-note {
+      border-top: 1px solid #d9dceb;
+      padding: 2rem 0 1.8rem;
+      text-align: center;
+      color: #5d5d7a;
+      font-size: 0.9rem;
+    }
+    .footer-note a {
+      color: #7a5f2a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer-note a:hover {
+      color: #4b3b1d;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 550px) {
+      .hero h1 { font-size: 2rem; }
+      .intro-section { padding: 1.8rem 1.2rem; }
+      .faq-summary { padding: 1.5rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <div class="top-nav">
+    <div class="brand">爱游戏 <small>导航介绍</small></div>
+    <ul>
+      <li><a href="#intro">介绍</a></li>
+      <li><a href="#scenes">场景</a></li>
+      <li><a href="#faq">说明</a></li>
+    </ul>
+  </div>
+
+  <!-- 深色头图 hero -->
+  <div class="hero">
+    <h1>一眼看清 <em>爱游戏</em> 是什么</h1>
+    <p>一个为体育赛事和线上互动提供信息入口的平台。<br>快速识别用途，少走弯路。</p>
+  </div>
+
+  <!-- 正文区 -->
+  <div class="content-wrapper">
+
+    <!-- 核心介绍卡片 -->
+    <div class="intro-section" id="intro">
+      <h2>快速识别 · 网站用途</h2>
+      <p>
+        如果你刚来到 <a href="https://linesports-igame.com" style="text-decoration:underline;">爱游戏</a>，
+        很可能想搞清楚这个网站主要提供什么。简单说，它围绕体育赛事内容、
+        比分动态以及一些线上游戏化互动来组织信息。你可以把它理解为一个专题导航站，
+        帮你找到感兴趣的比赛或活动信息。
+      </p>
+      <p>
+        这里不卖产品，不搞复杂注册，而是更偏向信息整理和指引。
+        如果你对某项体育赛事或者线上休闲互动有好奇，不妨在站内多浏览一下栏目分类。
+        当然，所有信息的准确性建议以官方来源为准。
+      </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid" id="scenes">
+      <div class="scene-card">
+        <div class="icon">🏅</div>
+        <h3>赛事浏览场景</h3>
+        <p>想看某个联赛或杯赛的赛程、结果？站内提供比较清晰的赛事列表，方便快速定位你关心的场次。</p>
+      </div>
+      <div class="scene-card">
+        <div class="icon">🎯</div>
+        <h3>数据参考场景</h3>
+        <p>查找队伍近期表现、对阵记录？通过分类标签可以获取整理过的数据要点，节省自己搜集的时间。</p>
+      </div>
+      <div class="scene-card">
+        <div class="icon">🧩</div>
+        <h3>互动了解场景</h3>
+        <p>对平台上的小游戏或竞猜类互动感兴趣？可以先通过介绍页了解基本规则和类型，再决定是否参与。</p>
+      </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-summary" id="faq">
+      <h4><span>❓</span> 常见简短说明</h4>
+      <div class="faq-item">
+        <span class="question">这个网站需要注册才能用吗？</span>
+        <div class="answer">浏览大部分内容不需要注册。部分互动功能可能需要账号，具体以页面提示为准。</div>
+      </div>
+      <div class="faq-item">
+        <span class="question">信息更新频率如何？</span>
+        <div class="answer">通常比赛结束后会有及时更新，但建议同时留意其他官方体育媒体获取最准确实况。</div>
+      </div>
+      <div class="faq-item">
+        <span class="question">如何回到首页或找到更多分类？</span>
+        <div class="answer">站内导航菜单会列出主要板块。你也可以直接通过 <a href="https://linesports-igame.com">爱游戏</a> 主页开始浏览。</div>
+      </div>
+      <div class="faq-item">
+        <span class="question">内容收费吗？</span>
+        <div class="answer">目前公开的信息浏览是免费的。如果未来有增值服务，站内会有显著说明。</div>
+      </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+      <p>本页为介绍性导航页面，内容仅供快速参考。详细功能请直接访问 <a href="https://linesports-igame.com">爱游戏</a> 网站。</p>
+      <p style="margin-top:0.8rem; font-size:0.8rem;">基于实用方向整理 · 信息保持平实</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
